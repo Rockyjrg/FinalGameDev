@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainCharacterMainHandler : MonoBehaviour
 {
 
     [Header("Stats")]
     [SerializeField] int health = 5;
+    [SerializeField] int maxHealth = 10;
     [SerializeField] float speed = 3f;
     [SerializeField] int gold = 0;
     [SerializeField] float jumpForce = 5f;
@@ -33,7 +35,8 @@ public class MainCharacterMainHandler : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         originalScale = transform.localScale;
 
-        UpdateUI();
+        UpdateGoldUI();
+        UpdateHealthUI();
     }
 
     // Update is called once per frame
@@ -103,12 +106,65 @@ public class MainCharacterMainHandler : MonoBehaviour
     {
         gold += amount;
         //make script for UI for gold
-        UpdateUI();
+        UpdateGoldUI();
     }
 
-    private void UpdateUI()
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        UpdateHealthUI();
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void UpdateGoldUI()
     {
         goldCounterText.text = gold.ToString();
-        // TODO: healthCounterText.text = health.ToString();
     }
+
+    private void UpdateHealthUI()
+    {
+        healthCounterText.text = health.ToString();
+    }
+
+    public void AddHealth(int amount)
+    {
+        health += amount;
+        health = Mathf.Clamp(health, 0, maxHealth); // Ensure health stays within limits
+    }
+
+    // public void AddDamage(int amount)
+    // {
+    //     damage += amount;
+    // }
+
+    public void AddSpeed(float amount)
+    {
+        speed += amount;
+    }
+
+    public int GetGold()
+    {
+        return gold;
+    }
+
+    public void SpendGold(int amount)
+    {
+        gold -= amount;
+        UpdateGoldUI(); // Assuming you have a method to update gold UI
+    }
+
+    public void AddJump(int amount)
+    {
+        jumpForce += amount;
+    }
+
 }

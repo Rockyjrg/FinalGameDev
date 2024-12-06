@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ladder
+  - Enemy
+  - StandStillMob
   layers:
   - Default
   - TransparentFX
@@ -42,7 +44,10 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Terrain
+  - name: TerrainVeryBackground
+    uniqueID: 286198559
+    locked: 0
+  - name: TerrainInFrontOfTerrain
     uniqueID: 3050873489
     locked: 0
   - name: GameObjects
@@ -50,4 +55,7 @@ TagManager:
     locked: 0
   - name: Character
     uniqueID: 2809422483
+    locked: 0
+  - name: Accessories
+    uniqueID: 1377357961
     locked: 0
