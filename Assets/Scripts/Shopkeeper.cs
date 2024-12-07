@@ -6,13 +6,8 @@ using UnityEngine.UI;
 public class Shopkeeper : MonoBehaviour
 {
     [SerializeField] GameObject shopUI;
+    [SerializeField] private AudioClip shopSound;
     private bool isPlayerNearby = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -21,6 +16,7 @@ public class Shopkeeper : MonoBehaviour
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
         {
             ToggleShopUI();
+            SoundManager.Instance.PlaySound(shopSound);
         }
     }
 

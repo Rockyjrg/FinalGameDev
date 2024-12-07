@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6874139177f457449c6e9524fc06440, type: 3}
+  m_Name: GimmickShoes
+  m_EditorClassIdentifier: 
+  itemName: GimmickShoes
+  cost: 0
+  icon: {fileID: 0}
+  healthBoost: 5
+  damageBoost: 0
+  speedBoost: -2
+  jumpForce: 3
+  itemPrefab: {fileID: 3804394193453917972, guid: 69f39c07e39482247a267d0392f42f2f, type: 3}
+  slotType: Shoe

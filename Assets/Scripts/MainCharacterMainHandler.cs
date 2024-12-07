@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,6 +19,9 @@ public class MainCharacterMainHandler : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] TextMeshProUGUI goldCounterText;
     [SerializeField] TextMeshProUGUI healthCounterText;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip hurtSound;
 
     private Rigidbody2D rb;
     private float moveInput;
@@ -112,11 +116,13 @@ public class MainCharacterMainHandler : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
+        SoundManager.Instance.PlaySound(hurtSound);
         UpdateHealthUI();
+        PlayerCheckpoint playerCheckpoint = GetComponent<PlayerCheckpoint>();
 
         if (health <= 0)
         {
-            Die();
+            playerCheckpoint.Respawn();
         }
     }
 
@@ -167,4 +173,9 @@ public class MainCharacterMainHandler : MonoBehaviour
         jumpForce += amount;
     }
 
+    public void ResetHealth()
+    {
+        health = 5; // Reset to full health or a specific value
+        UpdateHealthUI(); // Update the health UI
+    }
 }

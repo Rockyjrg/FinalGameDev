@@ -6,24 +6,14 @@ public class CoinPickup : MonoBehaviour
 {
 
     [SerializeField] private int goldAmount = 1;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    [SerializeField] private AudioClip coinSound;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<MainCharacterMainHandler>().AddGold(goldAmount);
+            SoundManager.Instance.PlaySound(coinSound);
             Destroy(gameObject);
         }
     }
