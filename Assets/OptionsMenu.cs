@@ -8,6 +8,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private Toggle fullscreenToggle;
     [SerializeField] private Dropdown resolutionDropdown;
+    [SerializeField] private Slider soundEffectsSlider;
 
     private Resolution[] resolutions;
 
@@ -25,8 +26,8 @@ public class OptionsMenu : MonoBehaviour
         resolutionDropdown.value = resolutions.Length - 1;
         resolutionDropdown.RefreshShownValue();
 
-        // Load saved settings (optional)
         volumeSlider.value = PlayerPrefs.GetFloat("Volume", 1f);
+        soundEffectsSlider.value = PlayerPrefs.GetFloat("SoundEffectsVolume", 1f);
         fullscreenToggle.isOn = Screen.fullScreen;
         resolutionDropdown.value = PlayerPrefs.GetInt("Resolution", resolutions.Length - 1);
     }
@@ -59,5 +60,11 @@ public class OptionsMenu : MonoBehaviour
         Resolution res = resolutions[resolutionIndex];
         Screen.SetResolution(res.width, res.height, Screen.fullScreen);
         PlayerPrefs.SetInt("Resolution", resolutionIndex);
+    }
+
+    public void SetSoundEffectsVolume(float volume)
+    {
+        FindObjectOfType<AudioSettings>().SetSoundEffectsVolume(volume);
+        PlayerPrefs.SetFloat("SoundEffectsVolume", volume);
     }
 }

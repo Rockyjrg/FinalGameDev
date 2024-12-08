@@ -11,4 +11,9 @@ public class AudioSettings : MonoBehaviour
     {
         audioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
     }
+
+    public void SetSoundEffectsVolume(float volume)
+    {
+        audioMixer.SetFloat("SoundEffectsVolume", Mathf.Log10(volume) * 20);
+    }
 }

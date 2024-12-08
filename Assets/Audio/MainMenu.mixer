@@ -35,6 +35,39 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-2916288259194148059
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: b8590c82b2e598a439f5e455ee0da7c7
+  m_EffectName: Attenuation
+  m_MixLevel: cee82c8371e77b14f9f10d69101067b6
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &-2562441077715906757
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SoundEffects
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: e3d2ffedf6c87d744b705a9fe924a0cb
+  m_Children: []
+  m_Volume: 4446fcf9f5c399f45a580d8eb605f57a
+  m_Pitch: 1b7a68153535a174c89e6b0b59559eec
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -2916288259194148059}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &-270225950761282499
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -67,10 +100,13 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: 364c3388f814e134d8155f6678898dcc
     name: Volume
+  - guid: 4446fcf9f5c399f45a580d8eb605f57a
+    name: SoundEffectsVolume
   m_AudioMixerGroupViews:
   - guids:
     - 320151af2894fd945a418136da263124
     - bd1fc3c25fbff96418acaef3a90f0c12
+    - e3d2ffedf6c87d744b705a9fe924a0cb
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -85,6 +121,7 @@ AudioMixerGroupController:
   m_GroupID: 320151af2894fd945a418136da263124
   m_Children:
   - {fileID: -7544465271093476438}
+  - {fileID: -2562441077715906757}
   m_Volume: 3fd1500f675ce8040b9f5dae1f9d2a49
   m_Pitch: 71b5aeb56a7ecfb4cbe3cc128bf76c08
   m_Send: 00000000000000000000000000000000
@@ -120,5 +157,6 @@ AudioMixerSnapshotController:
   m_FloatValues:
     fec6fa463dccdc74790447e2351601f1: -50.1
     364c3388f814e134d8155f6678898dcc: -45.49092
+    4446fcf9f5c399f45a580d8eb605f57a: 0.13552582
     3fd1500f675ce8040b9f5dae1f9d2a49: 0
   m_TransitionOverrides: {}

@@ -17,6 +17,7 @@ public class LevelEndTrigger : MonoBehaviour
             ShowLevelCompleteUI();
             SoundManager.Instance.PlaySound(completeSound);
             Invoke("LoadNextLevel", delayBeforeNextLevel);
+            Destroy(gameObject, delayBeforeNextLevel + 0.1f);
         }
     }
 
