@@ -9,6 +9,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private Toggle fullscreenToggle;
     [SerializeField] private Dropdown resolutionDropdown;
     [SerializeField] private Slider soundEffectsSlider;
+    [SerializeField] private Slider masterVolumeSlider;
 
     private Resolution[] resolutions;
 
